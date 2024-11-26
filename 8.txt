@@ -1,0 +1,54 @@
+#1
+#a
+data <- read.csv("Clt-data.csv")
+
+#b
+nrow(data)
+head(data, 10)
+
+#c
+mean_wall_thickness <- mean(data$Wall.Thickness)
+hist(data$Wall.Thickness, main="Wall Thickness", xlab="Wall Thickness")
+
+#d
+abline(v=mean_wall_thickness , col="red" , lwd=2)
+
+
+#a)) 
+set.seed(123)  # For reproducibility
+sample_means_10 <- replicate(1000, mean(sample(data$Wall.Thickness, 10)))
+hist(sample_means_10, main="Sample Means (n=10)", xlab="Mean of Samples")
+
+
+#b))
+sample_means_50 <- replicate(50, mean(sample(data$Wall.Thickness, 50)))
+hist(sample_means_50,xlab="Mean of Samples")
+
+sample_means_500 <- replicate(500, mean(sample(data$Wall.Thickness, 500)))
+hist(sample_means_500, xlab="Mean of Samples")
+
+sample_means_9000 <- replicate(9000, mean(sample(data$Wall.Thickness, 9000)))
+hist(sample_means_9000,xlab="Mean of Samples")
+
+
+#2
+#a
+age <- c(58, 69, 43, 39, 63, 52, 47, 31, 74, 36)
+cholesterol <- c(189, 235, 193, 177, 154, 191, 213, 165, 198, 181)
+
+#b
+plot(age, cholesterol, main="Scatter Plot of Age vs Cholesterol", xlab="Age", ylab="Cholesterol Level", pch=19)
+model <- lm(cholesterol ~ age)
+abline(model, col="blue")
+
+#c
+predict(model, data.frame(age = 60))
+
+
+#3
+#a
+before <- c(145, 173, 158, 141, 167, 159, 154, 167, 145, 153)
+after <- c(155, 167, 156, 149, 168, 162, 158, 169, 157, 161)
+
+#b
+t.test(before, after, paired=TRUE, alternative="less")

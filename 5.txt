@@ -1,0 +1,46 @@
+#1
+#a>
+p = 1-punif(45,0,60)
+p
+#b>
+p = punif(30,0,60) - punif(20,0,60)
+p
+
+
+#2
+#a
+lambda = 1/2
+p = dexp(3,lambda)
+p
+
+#b
+p = dexp(c(0,1,2,3,4,5),lambda)
+plot(c(0,1,2,3,4,5),p)
+
+
+#c
+p = pexp(3,lambda)
+p
+
+#d
+p = pexp(c(0,1,2,3,4,5),lambda)
+plot(c(0,1,2,3,4,5),p)
+
+#e
+p = rexp(1000,lambda)
+plot(p,type='l')
+
+
+#3
+#a
+#1
+p = dgamma(3,shape=2,rate=1/3)
+p
+  
+#2
+p= 1-dgamma(1,shape=2,rate=1/3)
+p
+  
+#b
+c = qgamma(0.70,shape=2,rate=1/3)
+c

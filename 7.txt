@@ -1,0 +1,47 @@
+#q1
+
+n=100
+f=n-1
+sample=rt(n,f)
+hist(sample,main="Q1")
+
+#q2
+
+rchisq(n,2)
+rchisq(n,10)
+rchisq(n,25)
+
+#q3
+# Adjust the plot margins to avoid the error
+par(mar = c(5, 4, 4, 2) + 0.1)
+
+# Your existing code
+vec <- seq(-6, 6, length = 100)
+
+df1 <- dt(vec, 1)
+df4 <- dt(vec, 4)
+df10 <- dt(vec, 10)
+df30 <- dt(vec, 30)
+
+plot(df1, main = "Q3 DF=1", type = "l")
+lines(df1)
+lines(df4)
+lines(df10)
+lines(df30)
+
+#q4
+
+#i)
+qf(0.95,10,20)
+
+#ii)
+cat("Area under the curve: ",pf(1.5,10,20)," sq units\n")
+
+#iii)
+quants=c(0.25,0.5,0.75,0.999)
+val=qf(quants,10,20)
+cat("Result wrt quantiles 0.25,0.5,0.75,0.999 respectively: ",val,"\n")
+
+#iv)
+fdist=rf(1000,10,20)
+hist(fdist,main="Q5 Random F-distribution")
